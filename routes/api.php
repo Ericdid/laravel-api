@@ -2,7 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\Project;
+
+use App\Http\Controllers\Api\ProjectController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +22,6 @@ use App\Models\Project;
 //     return $request->user();
 // });
 
-Route::get("/projects", function () {
-    $projects = Project::all();
-    return response()->json([
-        'projects' => $projects
-    ]);
-});
+// Route::get("/projects", [ProjectController::class, "index"]);
+
+Route::apiResource("projects", ProjectController::class)->only(['index', 'show']);
