@@ -18,6 +18,7 @@ class ProjectController extends Controller
     {
 
         $projects = Project::all();
+        // dd($projects);
         return response()->json([
             'projects' => $projects
         ]);
