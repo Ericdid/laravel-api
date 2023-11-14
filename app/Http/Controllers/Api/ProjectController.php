@@ -42,8 +42,9 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Project $project)
+    public function show($id)
     {
+        $project = Project::all()->where('id', $id)->first();
         return response()->json($project);
     }
 
